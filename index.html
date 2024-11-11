@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOODIE YA!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>FOODIE YA!</h1>
+    </header>
+    
+    <main id="main-content">
+        <!-- Pantalla de Inicio -->
+        <section id="inicio">
+            <h2>Bienvenido a FOODIE YA!</h2>
+            <button onclick="mostrarSeccion('registro')">Registrarse</button>
+            <button onclick="mostrarSeccion('login')">Iniciar Sesión</button>
+        </section>
+
+        <!-- Pantalla de Registro -->
+        <section id="registro" class="oculto">
+            <h2>Registro</h2>
+            <input type="text" id="reg-email" placeholder="Correo electrónico">
+            <input type="password" id="reg-password" placeholder="Contraseña">
+            <button onclick="registrarUsuario()">Registrarse</button>
+            <button onclick="mostrarSeccion('inicio')">Volver</button>
+        </section>
+
+        <!-- Pantalla de Inicio de Sesión -->
+        <section id="login" class="oculto">
+            <h2>Iniciar Sesión</h2>
+            <input type="text" id="login-email" placeholder="Correo electrónico">
+            <input type="password" id="login-password" placeholder="Contraseña">
+            <button onclick="iniciarSesion()">Iniciar Sesión</button>
+            <button onclick="mostrarSeccion('inicio')">Volver</button>
+        </section>
+
+        <!-- Pantalla Principal del Donante -->
+        <section id="donante" class="oculto">
+            <h2>Donaciones Disponibles</h2>
+            <button onclick="mostrarSeccion('registro-donacion')">Registrar Donación</button>
+            <ul id="lista-donaciones"></ul>
+        </section>
+
+        <!-- Pantalla de Registro de Donación -->
+        <section id="registro-donacion" class="oculto">
+            <h2>Registrar Donación</h2>
+            <input type="text" id="tipo-alimento" placeholder="Tipo de Alimento">
+            <input type="number" id="cantidad-alimento" placeholder="Cantidad de Platos">
+            <input type="text" id="ubicacion-donacion" placeholder="Ubicación">
+            <input type="text" id="nombre-restaurante" placeholder="Nombre del Restaurante">
+            <input type="date" id="fecha-expiracion">
+            <button onclick="registrarDonacion()">Registrar</button>
+            <button onclick="mostrarSeccion('donante')">Volver</button>
+        </section>
+
+        <!-- Pantalla de Detalles de Donación -->
+        <section id="detalles-donacion" class="oculto">
+            <h2>Detalles de la Donación</h2>
+            <p id="detalle-nombre-restaurante"></p>
+            <p id="detalle-cantidad"></p>
+            <p id="detalle-ubicacion"></p>
+            <p id="detalle-certificado"></p> <!-- Certificado de donador -->
+            <button onclick="reservarDonacion()">Hacer Reserva</button>
+            <button onclick="mostrarSeccion('donante')">Volver</button>
+        </section>
+
+        <!-- Pantalla de Receptor -->
+        <section id="receptor" class="oculto">
+            <h2>Buscar Donaciones</h2>
+            <input type="text" id="busqueda" placeholder="Buscar tipo de alimento" oninput="buscarDonaciones()">
+            <ul id="resultados-busqueda"></ul>
+        </section>
+
+        <!-- Notificaciones -->
+        <section id="notificaciones" class="oculto">
+            <h2>Notificaciones</h2>
+            <ul id="lista-notificaciones"></ul>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
